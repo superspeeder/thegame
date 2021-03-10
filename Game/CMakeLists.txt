@@ -1,4 +1,4 @@
-project(Game VERSION 0.1.0)
+project(Game VERSION 0.2.0)
 
 find_package(glad CONFIG REQUIRED)
 
