@@ -3,8 +3,13 @@
 #include <string>
 #include <cinttypes>
 
+#include "kat/renderer/Renderer.hpp"
 #include "kat/Window.hpp"
 
+#include "kat/Event.hpp"
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
 
 namespace kat {
 
@@ -19,6 +24,7 @@ namespace kat {
 	private:
 		ApplicationSettings m_Settings;
 		kat::Window* m_Window;
+		kat::EventHandler* m_EventHandler;
 
 
 		void createWindow();
@@ -34,6 +40,8 @@ namespace kat {
 		void setSettings(ApplicationSettings settings);
 
 		virtual void render();
+		virtual void create();
+		virtual void destroy();
 
 	public:
 
@@ -44,6 +52,11 @@ namespace kat {
 
 		std::string getApplicationName();
 		std::string getApplicationVersion();
+		kat::Window* getWindow();
 
+
+		inline kat::EventHandler* getEventHandler() {
+			return m_EventHandler;
+		};
 	};
 }

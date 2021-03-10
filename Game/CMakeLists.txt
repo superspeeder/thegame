@@ -2,11 +2,9 @@ project(Game VERSION 0.1.0)
 
 find_package(glad CONFIG REQUIRED)
 
-set (GAME_SOURCES "src/main.cpp" "include/main.hpp")
+add_executable(Game "src/main.cpp" "include/main.hpp" "include/tilemap.hpp" "src/tilemap.cpp" "include/camera.hpp" "src/camera.cpp")
 
-add_executable(Game ${GAME_SOURCES})
-
-target_link_libraries(Game PRIVATE Engine)
+target_link_libraries(Game PRIVATE Engine glm)
 
 target_include_directories(Game PRIVATE ${PROJECT_SOURCE_DIR}/include)
 target_compile_definitions(Game PUBLIC GAME_VERSION="${PROJECT_VERSION}")
